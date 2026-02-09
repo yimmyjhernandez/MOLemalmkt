@@ -63,6 +63,18 @@
             text-transform: uppercase;
         }
 
+        .insight-pill {
+            background: #f8fafc;
+            border-left: 3px solid #3b82f6;
+            border-radius: 6px;
+        }
+
+        .warning-pill {
+            background: #fffaf5;
+            border-left: 3px solid #f97316;
+            border-radius: 6px;
+        }
+
         .lead-row:hover { background-color: #f8fafc; }
     </style>
 </head>
@@ -75,9 +87,9 @@
                 <h1 class="text-2xl font-extrabold text-slate-900 leading-none">
                     Performance de Campañas <span class="text-blue-600">MOL</span>
                 </h1>
-                <p class="text-slate-500 font-medium text-xs mt-2">
+                <p class="text-slate-500 font-medium text-xs mt-2 flex items-center">
                     Email Marketing Executive Report • 
-                    <span class="bg-blue-600 text-white px-3 py-0.5 rounded-full font-bold ml-1">
+                    <span class="bg-blue-600 text-white px-3 py-0.5 rounded-full font-bold ml-2 shadow-sm">
                         Engagement & Leads (1er Toque)
                     </span>
                 </p>
@@ -95,42 +107,62 @@
         <!-- BOTTOM SECTION -->
         <div class="grid grid-cols-12 gap-6 flex-grow overflow-hidden">
             
-            <!-- COL IZQUIERDA: GRÁFICO E INSIGHTS -->
-            <div class="col-span-4 flex flex-col gap-4">
-                <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 flex-grow relative">
-                    <h4 class="text-[0.6rem] font-black uppercase tracking-widest text-slate-400 mb-2">Leads por Industria</h4>
-                    <div class="h-48">
-                        <canvas id="leadsChart"></canvas>
-                    </div>
+            <!-- COL IZQUIERDA: GRÁFICO E INSIGHTS ESTRATÉGICOS -->
+            <div class="col-span-5 flex flex-col gap-3">
+                <!-- Gráfico de Leads -->
+                <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 relative h-40">
+                    <h4 class="text-[0.6rem] font-black uppercase tracking-widest text-slate-400 mb-1">Leads por Industria</h4>
+                    <canvas id="leadsChart"></canvas>
                 </div>
                 
-                <div class="bg-blue-600 rounded-xl p-4 text-white shadow-lg">
-                    <p class="text-[0.6rem] font-black uppercase opacity-80 mb-1">🔥 Top Insight</p>
-                    <p class="text-[0.7rem] font-bold leading-tight">
-                        Real Estate concentra el 48% de los leads totales. Priorizar secuencia de seguimiento inmediato.
-                    </p>
+                <!-- Insights Estratégicos (Los 4 bloques que pediste mantener) -->
+                <div class="grid grid-cols-2 gap-2 flex-grow">
+                    <div class="insight-pill p-3 border border-blue-50">
+                        <p class="text-[0.55rem] font-black text-blue-600 uppercase mb-1">🔥 Mayor Oportunidad</p>
+                        <p class="text-[0.65rem] text-slate-600 leading-tight font-medium">
+                            <strong>Real Estate:</strong> 54% apertura y 20 leads. Priorizar empuje.
+                        </p>
+                    </div>
+                    <div class="insight-pill p-3 border border-blue-50">
+                        <p class="text-[0.55rem] font-black text-blue-600 uppercase mb-1">✅ Base Caliente</p>
+                        <p class="text-[0.65rem] text-slate-600 leading-tight font-medium">
+                            <strong>Automotor:</strong> Mix ideal (57% ap + 29% clic). Venta directa.
+                        </p>
+                    </div>
+                    <div class="insight-pill p-3 border border-blue-50">
+                        <p class="text-[0.55rem] font-black text-blue-600 uppercase mb-1">📈 Nutrición</p>
+                        <p class="text-[0.65rem] text-slate-600 leading-tight font-medium">
+                            <strong>Retail:</strong> Leads activos (9). Secuencia de valor recurrente.
+                        </p>
+                    </div>
+                    <div class="warning-pill p-3 border border-orange-50">
+                        <p class="text-[0.55rem] font-black text-orange-600 uppercase mb-1">⚠️ Revisar Mensaje</p>
+                        <p class="text-[0.65rem] text-slate-600 leading-tight font-medium">
+                            <strong>Salud/Edu:</strong> Aperturas vs Clics nulos. Revisar CTAs.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <!-- COL DERECHA: LEAD FEED (DETALLE DE EMPRESAS) -->
-            <div class="col-span-8 flex flex-col bg-slate-50 rounded-xl border border-slate-100 overflow-hidden">
+            <div class="col-span-7 flex flex-col bg-slate-50 rounded-xl border border-slate-100 overflow-hidden">
                 <div class="p-3 border-b border-slate-200 bg-white flex justify-between items-center">
                     <h4 class="text-[0.65rem] font-black uppercase tracking-widest text-slate-500">
                         Detalle de Leads: Listos para Segundo Toque (41)
                     </h4>
-                    <span class="text-[0.6rem] bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded">Prioridad: Alta</span>
+                    <span class="text-[0.55rem] bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded tracking-tighter">TOTAL: 41 PROSPECTOS</span>
                 </div>
                 
                 <div class="custom-scroll overflow-y-auto flex-grow">
                     <table class="w-full text-left border-collapse">
-                        <thead class="sticky top-0 bg-slate-50 text-[0.55rem] uppercase font-bold text-slate-400 border-b border-slate-200">
+                        <thead class="sticky top-0 bg-slate-50 text-[0.5rem] uppercase font-bold text-slate-400 border-b border-slate-200">
                             <tr>
-                                <th class="px-4 py-2">Empresa / Organización</th>
-                                <th class="px-2 py-2 text-center">Industria</th>
+                                <th class="px-4 py-2">Empresa</th>
+                                <th class="px-2 py-2 text-center">Ind.</th>
                                 <th class="px-4 py-2">Decisor / Cargo</th>
                             </tr>
                         </thead>
-                        <tbody id="leadTableBody" class="text-[0.65rem]">
+                        <tbody id="leadTableBody" class="text-[0.6rem]">
                             <!-- JS Injection -->
                         </tbody>
                     </table>
@@ -212,8 +244,8 @@
                 const offset = dash - (ind.open / 100 * dash);
                 grid.innerHTML += `
                     <div class="metric-card p-3 flex flex-col items-center">
-                        <span class="industry-tag mb-1">${ind.name}</span>
-                        <div class="relative w-12 h-12 mb-2">
+                        <span class="industry-tag mb-1 tracking-tighter">${ind.name}</span>
+                        <div class="relative w-11 h-11 mb-2">
                             <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90">
                                 <circle class="circle-bg" cx="18" cy="18" r="15.9155"></circle>
                                 <circle class="circle-progress" cx="18" cy="18" r="15.9155" stroke="${ind.color}" stroke-dasharray="${dash}" stroke-dashoffset="${offset}"></circle>
@@ -222,9 +254,9 @@
                                 <span class="text-[0.6rem] font-black text-slate-800">${ind.open}%</span>
                             </div>
                         </div>
-                        <div class="w-full flex justify-between text-[0.55rem] border-t border-slate-50 pt-2 px-1">
-                            <div class="text-center"><p class="text-slate-400 font-bold uppercase">Env</p><p class="font-bold">${ind.sent}</p></div>
-                            <div class="text-center"><p class="text-slate-400 font-bold uppercase">Clic</p><p class="font-bold">${ind.click}%</p></div>
+                        <div class="w-full flex justify-between text-[0.5rem] border-t border-slate-50 pt-2">
+                            <div class="text-center"><p class="text-slate-400 font-bold">Env</p><p class="font-bold">${ind.sent}</p></div>
+                            <div class="text-center"><p class="text-slate-400 font-bold">Clic</p><p class="font-bold">${ind.click}%</p></div>
                         </div>
                     </div>
                 `;
@@ -236,15 +268,15 @@
                 const color = getIndColor(lead.industria);
                 table.innerHTML += `
                     <tr class="lead-row border-b border-slate-100">
-                        <td class="px-4 py-2 font-bold text-slate-700">${lead.empresa}</td>
-                        <td class="px-2 py-2 text-center">
-                            <span class="px-2 py-0.5 rounded text-[0.5rem] font-black text-white" style="background-color: ${color}">
+                        <td class="px-4 py-1.5 font-bold text-slate-700">${lead.empresa}</td>
+                        <td class="px-2 py-1.5 text-center">
+                            <span class="px-1.5 py-0.5 rounded text-[0.45rem] font-black text-white" style="background-color: ${color}">
                                 ${lead.industria}
                             </span>
                         </td>
-                        <td class="px-4 py-2">
+                        <td class="px-4 py-1.5 leading-tight">
                             <p class="font-bold text-slate-800">${lead.nombre}</p>
-                            <p class="text-[0.55rem] text-slate-400">${lead.cargo}</p>
+                            <p class="text-[0.5rem] text-slate-400">${lead.cargo}</p>
                         </td>
                     </tr>
                 `;
@@ -264,7 +296,7 @@
                         data: [1, 4, 7, 9, 20],
                         backgroundColor: ['#e2e8f0', '#cbd5e1', '#0ea5e9', '#3b82f6', '#10b981'],
                         borderRadius: 6,
-                        barThickness: 15
+                        barThickness: 12
                     }]
                 },
                 options: {
@@ -276,14 +308,14 @@
                         datalabels: {
                             anchor: 'end', align: 'end',
                             formatter: (v) => v,
-                            font: { weight: '800', size: 10 }
+                            font: { weight: '800', size: 9 }
                         }
                     },
                     scales: {
                         x: { display: false },
                         y: { 
                             grid: { display: false },
-                            ticks: { font: { size: 9, weight: '700' }, color: '#64748b' }
+                            ticks: { font: { size: 8, weight: '700' }, color: '#64748b' }
                         }
                     }
                 }
