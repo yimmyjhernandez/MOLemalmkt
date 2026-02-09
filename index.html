@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance de Campañas – MOL por Industria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container-16-9 {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 1280px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        /* Scrollbar Minimalista */
+        .custom-scroll::-webkit-scrollbar { width: 4px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .circle-bg { fill: none; stroke: #f1f5f9; stroke-width: 4; }
+        .circle-progress { 
+            fill: none; 
+            stroke-width: 4; 
+            stroke-linecap: round; 
+            transition: stroke-dasharray 0.5s ease;
+        }
+
+        .industry-tag {
+            font-size: 0.6rem;
+            font-weight: 800;
+            color: #1e293b;
+            text-transform: uppercase;
+        }
+
+        .lead-row:hover { background-color: #f8fafc; }
+    </style>
+</head>
+<body>
+
+    <div class="container-16-9">
+        <!-- HEADER -->
+        <div class="flex justify-between items-start mb-4">
+            <div>
+                <h1 class="text-2xl font-extrabold text-slate-900 leading-none">
+                    Performance de Campañas <span class="text-blue-600">MOL</span>
+                </h1>
+                <p class="text-slate-500 font-medium text-xs mt-2">
+                    Email Marketing Executive Report • 
+                    <span class="bg-blue-600 text-white px-3 py-0.5 rounded-full font-bold ml-1">
+                        Engagement & Leads (1er Toque)
+                    </span>
+                </p>
+            </div>
+            <div class="bg-slate-900 px-4 py-1.5 rounded-lg shadow-lg">
+                <span class="text-white text-[0.65rem] font-bold uppercase tracking-widest">276 correos enviados</span>
+            </div>
+        </div>
+
+        <!-- TASA DE APERTURA GRID -->
+        <div id="industryGrid" class="grid grid-cols-6 gap-2 mb-4">
+            <!-- JS Injection -->
+        </div>
+
+        <!-- BOTTOM SECTION -->
+        <div class="grid grid-cols-12 gap-6 flex-grow overflow-hidden">
+            
+            <!-- COL IZQUIERDA: GRÁFICO E INSIGHTS -->
+            <div class="col-span-4 flex flex-col gap-4">
+                <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 flex-grow relative">
+                    <h4 class="text-[0.6rem] font-black uppercase tracking-widest text-slate-400 mb-2">Leads por Industria</h4>
+                    <div class="h-48">
+                        <canvas id="leadsChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-600 rounded-xl p-4 text-white shadow-lg">
+                    <p class="text-[0.6rem] font-black uppercase opacity-80 mb-1">🔥 Top Insight</p>
+                    <p class="text-[0.7rem] font-bold leading-tight">
+                        Real Estate concentra el 48% de los leads totales. Priorizar secuencia de seguimiento inmediato.
+                    </p>
+                </div>
+            </div>
+
+            <!-- COL DERECHA: LEAD FEED (DETALLE DE EMPRESAS) -->
+            <div class="col-span-8 flex flex-col bg-slate-50 rounded-xl border border-slate-100 overflow-hidden">
+                <div class="p-3 border-b border-slate-200 bg-white flex justify-between items-center">
+                    <h4 class="text-[0.65rem] font-black uppercase tracking-widest text-slate-500">
+                        Detalle de Leads: Listos para Segundo Toque (41)
+                    </h4>
+                    <span class="text-[0.6rem] bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded">Prioridad: Alta</span>
+                </div>
+                
+                <div class="custom-scroll overflow-y-auto flex-grow">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="sticky top-0 bg-slate-50 text-[0.55rem] uppercase font-bold text-slate-400 border-b border-slate-200">
+                            <tr>
+                                <th class="px-4 py-2">Empresa / Organización</th>
+                                <th class="px-2 py-2 text-center">Industria</th>
+                                <th class="px-4 py-2">Decisor / Cargo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadTableBody" class="text-[0.65rem]">
+                            <!-- JS Injection -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="mt-4 flex justify-between items-center text-[0.6rem] text-slate-400 font-bold uppercase tracking-widest border-t border-slate-100 pt-3">
+            <span>© 2026 Performance Analytics — Marketing Online</span>
+            <span class="italic text-slate-500 lowercase font-medium">Indicadores de engagement para priorizar acciones comerciales</span>
+        </div>
+    </div>
+
+    <script>
+        const industries = [
+            { name: 'Retail', open: 36, click: 3, shares: 4, sent: 129, color: '#3b82f6' },
+            { name: 'Construcción', open: 29, click: 3, shares: 0, sent: 86, color: '#94a3b8' },
+            { name: 'Real Estate', open: 54, click: 3, shares: 0, sent: 78, color: '#10b981' },
+            { name: 'Automotor', open: 57, click: 29, shares: 6, sent: 65, color: '#6366f1' },
+            { name: 'Salud', open: 58, click: 0, shares: 0, sent: 41, color: '#0ea5e9' },
+            { name: 'Educación', open: 33, click: 0, shares: 0, sent: 39, color: '#64748b' }
+        ];
+
+        const leadsData = [
+            { empresa: "Alfombras Mundiales CR", industria: "Retail", nombre: "Daniel Cedeño Rojas", cargo: "Sales Manager" },
+            { empresa: "ArcelorMittal Costa Rica", industria: "Retail", nombre: "Johnny Barquero Hernández", cargo: "Finance Manager" },
+            { empresa: "CODE Development Group", industria: "Real Estate", nombre: "Jimmy Mussio", cargo: "Director of Finance" },
+            { empresa: "Condominio El Canal", industria: "Real Estate", nombre: "Maria Jimena Mateo", cargo: "Marketing Director" },
+            { empresa: "C.R. Retirement Properties", industria: "Real Estate", nombre: "RK Shannon", cargo: "Owner and CEO" },
+            { empresa: "Dinamyc Tecnológicos", industria: "Retail", nombre: "Humberto Cruz", cargo: "President & CEO" },
+            { empresa: "Doer Fitness", industria: "Retail", nombre: "Alejandro Marin", cargo: "COO" },
+            { empresa: "El Rincón Inmobiliaria", industria: "Real Estate", nombre: "Alexandra Sanchez", cargo: "Co-Founder" },
+            { empresa: "ELMEC S.A.", industria: "Retail", nombre: "Leonel Barrios", cargo: "CTO" },
+            { empresa: "Futuro Verde Int. School", industria: "Educación", nombre: "Tania Rodriguez", cargo: "Finance Manager" },
+            { empresa: "Golden Valley School", industria: "Educación", nombre: "Jose Daniel Rojas", cargo: "Director Operations" },
+            { empresa: "Golfside Apartamentos", industria: "Real Estate", nombre: "Carlos Culebras", cargo: "Group CEO" },
+            { empresa: "Grupo Dökka", industria: "Retail", nombre: "Mauricio Solano", cargo: "Sales Manager" },
+            { empresa: "Hidden Coast Realty", industria: "Real Estate", nombre: "Angelica Yaneth", cargo: "Property Manager" },
+            { empresa: "INCAE Business School", industria: "Educación", nombre: "Katty Vasquez", cargo: "Purchasing Manager" },
+            { empresa: "Inmobiliaria Construreal", industria: "Real Estate", nombre: "Karen Arias Perez", cargo: "Financial Manager" },
+            { empresa: "Kellington Labs", industria: "Salud", nombre: "Pablo Rivera", cargo: "Head of Sales" },
+            { empresa: "KRAIN Luxury Real Estate", industria: "Real Estate", nombre: "Peter Breitlander", cargo: "Founder" },
+            { empresa: "Los Sueños Resort", industria: "Real Estate", nombre: "Jim Felhofer", cargo: "CFO" },
+            { empresa: "Los Sueños Resort", industria: "Real Estate", nombre: "Tina Mueller", cargo: "Marketing Manager" },
+            { empresa: "Los Sueños Resort", industria: "Real Estate", nombre: "Manuel Cordero", cargo: "COO" },
+            { empresa: "MD Link CR", industria: "Salud", nombre: "Felipe Robert", cargo: "CEO" },
+            { empresa: "Meza Dental Care", industria: "Salud", nombre: "Marcelo Meza", cargo: "CEO" },
+            { empresa: "Natural Aloe Costa Rica", industria: "Salud", nombre: "Yaacov Berman", cargo: "CEO" },
+            { empresa: "Natural Aloe Costa Rica", industria: "Salud", nombre: "Luis Contreras", cargo: "Accounting Manager" },
+            { empresa: "NYA Costa Rica", industria: "Real Estate", nombre: "Federico Castro", cargo: "Sales Leader" },
+            { empresa: "Osa Property Mgmt", industria: "Real Estate", nombre: "Katherine Gutierrez", cargo: "Finance Manager" },
+            { empresa: "Osa Property Mgmt", industria: "Real Estate", nombre: "Abigail Vargas", cargo: "Director Operations" },
+            { empresa: "Peninsula Papagayo", industria: "Real Estate", nombre: "Marie Deflandre", cargo: "Director Business Dev" },
+            { empresa: "Raw Botanicals", industria: "Salud", nombre: "Molly McBride", cargo: "Owner/Founder" },
+            { empresa: "ROCCA Development", industria: "Real Estate", nombre: "Fabian Mata", cargo: "Sales Manager" },
+            { empresa: "SAC Digital Health", industria: "Salud", nombre: "David Poveda", cargo: "CTO" },
+            { empresa: "Shift Esperanza", industria: "Real Estate", nombre: "Stephanie Valenzuela", cargo: "Marketing Manager" },
+            { empresa: "SIME S.A.", industria: "Construccion", nombre: "Jacobo Milgram", cargo: "CEO" },
+            { empresa: "SOLARIUM Costa Rica", industria: "Real Estate", nombre: "Jessica Vargas", cargo: "Business Development" },
+            { empresa: "Tiendas Ekono", industria: "Retail", nombre: "Rosibel Murillo", cargo: "Financial Manager" },
+            { empresa: "tobipets.com", industria: "Retail", nombre: "Melissa Salazar", cargo: "CMO" },
+            { empresa: "tobipets.com", industria: "Retail", nombre: "Andre Robert", cargo: "CEO" },
+            { empresa: "Tropical Realty CR", industria: "Real Estate", nombre: "Fabian Morales", cargo: "Marketing Manager" },
+            { empresa: "U. Int. de las Américas", industria: "Educación", nombre: "Mauricio Monge", cargo: "CEO Uia" },
+            { empresa: "Urbanizadora Siglo 21", industria: "Real Estate", nombre: "Kathy Borge", cargo: "Sales Director" }
+        ];
+
+        function getIndColor(indName) {
+            const ind = industries.find(i => i.name.toLowerCase().includes(indName.toLowerCase().split(' ')[0]));
+            return ind ? ind.color : '#cbd5e1';
+        }
+
+        function createContent() {
+            // Cards Superiores
+            const grid = document.getElementById('industryGrid');
+            industries.forEach(ind => {
+                const dash = 2 * Math.PI * 15.9155;
+                const offset = dash - (ind.open / 100 * dash);
+                grid.innerHTML += `
+                    <div class="metric-card p-3 flex flex-col items-center">
+                        <span class="industry-tag mb-1">${ind.name}</span>
+                        <div class="relative w-12 h-12 mb-2">
+                            <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90">
+                                <circle class="circle-bg" cx="18" cy="18" r="15.9155"></circle>
+                                <circle class="circle-progress" cx="18" cy="18" r="15.9155" stroke="${ind.color}" stroke-dasharray="${dash}" stroke-dashoffset="${offset}"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-[0.6rem] font-black text-slate-800">${ind.open}%</span>
+                            </div>
+                        </div>
+                        <div class="w-full flex justify-between text-[0.55rem] border-t border-slate-50 pt-2 px-1">
+                            <div class="text-center"><p class="text-slate-400 font-bold uppercase">Env</p><p class="font-bold">${ind.sent}</p></div>
+                            <div class="text-center"><p class="text-slate-400 font-bold uppercase">Clic</p><p class="font-bold">${ind.click}%</p></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Tabla de Leads
+            const table = document.getElementById('leadTableBody');
+            leadsData.forEach(lead => {
+                const color = getIndColor(lead.industria);
+                table.innerHTML += `
+                    <tr class="lead-row border-b border-slate-100">
+                        <td class="px-4 py-2 font-bold text-slate-700">${lead.empresa}</td>
+                        <td class="px-2 py-2 text-center">
+                            <span class="px-2 py-0.5 rounded text-[0.5rem] font-black text-white" style="background-color: ${color}">
+                                ${lead.industria}
+                            </span>
+                        </td>
+                        <td class="px-4 py-2">
+                            <p class="font-bold text-slate-800">${lead.nombre}</p>
+                            <p class="text-[0.55rem] text-slate-400">${lead.cargo}</p>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createContent();
+            Chart.register(ChartDataLabels);
+            
+            const ctx = document.getElementById('leadsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Cons.', 'Edu.', 'Salud', 'Retail', 'Real Estate'],
+                    datasets: [{
+                        data: [1, 4, 7, 9, 20],
+                        backgroundColor: ['#e2e8f0', '#cbd5e1', '#0ea5e9', '#3b82f6', '#10b981'],
+                        borderRadius: 6,
+                        barThickness: 15
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: {
+                            anchor: 'end', align: 'end',
+                            formatter: (v) => v,
+                            font: { weight: '800', size: 10 }
+                        }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: { 
+                            grid: { display: false },
+                            ticks: { font: { size: 9, weight: '700' }, color: '#64748b' }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
