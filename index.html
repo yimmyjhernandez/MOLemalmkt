@@ -103,6 +103,52 @@
             border-radius: 10px;
         }
 
+        .summary-card {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px -18px rgba(15, 23, 42, 0.18);
+        }
+
+        .summary-card-dark {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            box-shadow: 0 14px 30px -18px rgba(15, 23, 42, 0.35);
+        }
+
+        .kpi-chip {
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 0.68rem;
+            font-weight: 800;
+            padding: 0.3rem 0.65rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .kpi-chip-slate {
+            background: #f1f5f9;
+            color: #334155;
+        }
+
+        .kpi-chip-emerald {
+            background: #ecfdf5;
+            color: #047857;
+        }
+
+        .kpi-chip-amber {
+            background: #fffbeb;
+            color: #b45309;
+        }
+
+        .kpi-chip-violet {
+            background: #f5f3ff;
+            color: #6d28d9;
+        }
+
         .custom-scroll::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -235,13 +281,112 @@
                     </div>
                     <div class="bg-white/10 border border-white/15 rounded-2xl px-5 py-4 min-w-[220px]">
                         <p class="text-[0.65rem] text-blue-100 uppercase tracking-[0.16em] font-bold mb-1">Resumen general</p>
-                        <p class="text-white text-2xl font-extrabold">5 sesiones</p>
-                        <p class="text-blue-100 text-xs mt-1">Campañas + BBDD + CRM + LinkedIn</p>
+                        <p class="text-white text-2xl font-extrabold">56 leads activos</p>
+                        <p class="text-blue-100 text-xs mt-1">5 sesiones operativas consolidadas</p>
                     </div>
                 </div>
             </div>
 
             <div class="p-6 md:p-8 space-y-8">
+
+                <!-- RESUMEN GENERAL -->
+                <section class="section-card p-6">
+                    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
+                        <div>
+                            <p class="section-label">Resumen General</p>
+                            <h2 class="section-title">Vista consolidada de leads activos</h2>
+                            <p class="muted text-sm mt-2">
+                                Consolidado inicial de oportunidades activas por estado y por canal para priorizar el seguimiento comercial.
+                            </p>
+                        </div>
+                        <div class="summary-card-dark px-5 py-4 min-w-[220px]">
+                            <p class="text-[0.65rem] text-blue-100 uppercase tracking-[0.16em] font-bold">Total activo</p>
+                            <p class="text-white text-3xl font-extrabold mt-1">56</p>
+                            <p class="text-blue-100 text-xs mt-1">Campañas + LinkedIn + BBDD anuncios</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-sm font-extrabold text-slate-800 uppercase tracking-wider">Resumen por estado</h3>
+                            <span class="kpi-chip kpi-chip-slate">Gestión comercial activa</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="summary-card p-4 soft-hover">
+                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Por agendar</p>
+                                <p class="text-3xl font-extrabold text-amber-600">2</p>
+                                <p class="text-xs muted mt-1">Leads con interés para coordinar</p>
+                            </div>
+
+                            <div class="summary-card p-4 soft-hover">
+                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">En conversación</p>
+                                <p class="text-3xl font-extrabold text-blue-600">2</p>
+                                <p class="text-xs muted mt-1">Conversaciones abiertas actualmente</p>
+                            </div>
+
+                            <div class="summary-card p-4 soft-hover">
+                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">En seguimiento</p>
+                                <p class="text-3xl font-extrabold text-violet-600">52</p>
+                                <p class="text-xs muted mt-1">41 campañas + 11 LinkedIn</p>
+                            </div>
+
+                            <div class="summary-card p-4 soft-hover">
+                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Total activos</p>
+                                <p class="text-3xl font-extrabold text-emerald-600">56</p>
+                                <p class="text-xs muted mt-1">No incluye perdidos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-sm font-extrabold text-slate-800 uppercase tracking-wider">Resumen por canal o campaña</h3>
+                            <span class="kpi-chip">Prioridad de seguimiento</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="summary-card p-5 soft-hover">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-2">Campañas por industria</p>
+                                        <p class="text-3xl font-extrabold text-slate-900">41</p>
+                                        <p class="text-sm text-slate-600 mt-2 font-medium">
+                                            Leads listos para segundo toque.
+                                        </p>
+                                    </div>
+                                    <span class="kpi-chip kpi-chip-violet">Seguimiento</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-card p-5 soft-hover">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-2">LinkedIn Roberto</p>
+                                        <p class="text-3xl font-extrabold text-slate-900">11</p>
+                                        <p class="text-sm text-slate-600 mt-2 font-medium">
+                                            Invitaciones aceptadas en flujo de primer toque.
+                                        </p>
+                                    </div>
+                                    <span class="kpi-chip kpi-chip-emerald">Activo</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-card p-5 soft-hover">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-2">BBDD Anuncios</p>
+                                        <p class="text-3xl font-extrabold text-slate-900">4</p>
+                                        <p class="text-sm text-slate-600 mt-2 font-medium">
+                                            2 en conversación y 2 por agendar.
+                                        </p>
+                                    </div>
+                                    <span class="kpi-chip kpi-chip-amber">Oportunidad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- SESION 1 -->
                 <section class="section-card p-6">
@@ -668,6 +813,18 @@
     </div>
 
     <script>
+        const summaryTotals = {
+            industriasSeguimiento: 41,
+            linkedinAceptadas: 11,
+            anunciosConversacion: 2,
+            anunciosPorAgendar: 2,
+            anunciosPerdidos: 1
+        };
+
+        const totalAnunciosActivos = summaryTotals.anunciosConversacion + summaryTotals.anunciosPorAgendar;
+        const totalSeguimiento = summaryTotals.industriasSeguimiento + summaryTotals.linkedinAceptadas;
+        const totalActivos = totalSeguimiento + totalAnunciosActivos;
+
         const industries = [
             { name: 'Retail', open: 36, click: 3, shares: 4, sent: 129, color: '#3b82f6' },
             { name: 'Construcción', open: 29, click: 3, shares: 0, sent: 86, color: '#94a3b8' },
