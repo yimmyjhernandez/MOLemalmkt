@@ -103,6 +103,12 @@
             border-radius: 10px;
         }
 
+        .rose-pill {
+            background: #fff1f2;
+            border-left: 4px solid #e11d48;
+            border-radius: 10px;
+        }
+
         .summary-card {
             background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
             border: 1px solid #e2e8f0;
@@ -149,6 +155,11 @@
             color: #6d28d9;
         }
 
+        .kpi-chip-rose {
+            background: #fff1f2;
+            color: #be123c;
+        }
+
         .custom-scroll::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -182,6 +193,11 @@
         .status-conversacion {
             background: #dbeafe;
             color: #1d4ed8;
+        }
+
+        .status-interesado {
+            background: #f5f3ff;
+            color: #6d28d9;
         }
 
         .status-agendar {
@@ -281,7 +297,7 @@
                     </div>
                     <div class="bg-white/10 border border-white/15 rounded-2xl px-5 py-4 min-w-[220px]">
                         <p class="text-[0.65rem] text-blue-100 uppercase tracking-[0.16em] font-bold mb-1">Resumen general</p>
-                        <p class="text-white text-2xl font-extrabold">56 leads activos</p>
+                        <p class="text-white text-2xl font-extrabold">59 leads activos</p>
                         <p class="text-blue-100 text-xs mt-1">5 sesiones operativas consolidadas</p>
                     </div>
                 </div>
@@ -301,8 +317,8 @@
                         </div>
                         <div class="summary-card-dark px-5 py-4 min-w-[220px]">
                             <p class="text-[0.65rem] text-blue-100 uppercase tracking-[0.16em] font-bold">Total activo</p>
-                            <p class="text-white text-3xl font-extrabold mt-1">56</p>
-                            <p class="text-blue-100 text-xs mt-1">Campañas + LinkedIn + BBDD anuncios</p>
+                            <p class="text-white text-3xl font-extrabold mt-1">59</p>
+                            <p class="text-blue-100 text-xs mt-1">Campañas + LinkedIn + BBDD anuncios + CRM</p>
                         </div>
                     </div>
 
@@ -314,26 +330,26 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div class="summary-card p-4 soft-hover">
-                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Por agendar</p>
-                                <p class="text-3xl font-extrabold text-amber-600">2</p>
-                                <p class="text-xs muted mt-1">Leads con interés para coordinar</p>
-                            </div>
-
-                            <div class="summary-card p-4 soft-hover">
                                 <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">En conversación</p>
-                                <p class="text-3xl font-extrabold text-blue-600">2</p>
-                                <p class="text-xs muted mt-1">Conversaciones abiertas actualmente</p>
+                                <p class="text-3xl font-extrabold text-blue-600">5</p>
+                                <p class="text-xs muted mt-1">BBDD anuncios + CRM</p>
                             </div>
 
                             <div class="summary-card p-4 soft-hover">
-                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">En seguimiento</p>
-                                <p class="text-3xl font-extrabold text-violet-600">52</p>
-                                <p class="text-xs muted mt-1">41 campañas + 11 LinkedIn</p>
+                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Interesados / seguimiento</p>
+                                <p class="text-3xl font-extrabold text-violet-600">54</p>
+                                <p class="text-xs muted mt-1">Campañas + LinkedIn + interesados</p>
+                            </div>
+
+                            <div class="summary-card p-4 soft-hover">
+                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Perdidos</p>
+                                <p class="text-3xl font-extrabold text-rose-600">2</p>
+                                <p class="text-xs muted mt-1">BBDD anuncios</p>
                             </div>
 
                             <div class="summary-card p-4 soft-hover">
                                 <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Total activos</p>
-                                <p class="text-3xl font-extrabold text-emerald-600">56</p>
+                                <p class="text-3xl font-extrabold text-emerald-600">59</p>
                                 <p class="text-xs muted mt-1">No incluye perdidos</p>
                             </div>
                         </div>
@@ -345,7 +361,7 @@
                             <span class="kpi-chip">Prioridad de seguimiento</span>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div class="summary-card p-5 soft-hover">
                                 <div class="flex items-start justify-between gap-3">
                                     <div>
@@ -378,10 +394,23 @@
                                         <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-2">BBDD Anuncios</p>
                                         <p class="text-3xl font-extrabold text-slate-900">4</p>
                                         <p class="text-sm text-slate-600 mt-2 font-medium">
-                                            2 en conversación y 2 por agendar.
+                                            2 en conversación y 2 interesados.
                                         </p>
                                     </div>
                                     <span class="kpi-chip kpi-chip-amber">Oportunidad</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-card p-5 soft-hover">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-2">CRM</p>
+                                        <p class="text-3xl font-extrabold text-slate-900">3</p>
+                                        <p class="text-sm text-slate-600 mt-2 font-medium">
+                                            Leads en conversación ya identificados.
+                                        </p>
+                                    </div>
+                                    <span class="kpi-chip kpi-chip-emerald">Activo</span>
                                 </div>
                             </div>
                         </div>
@@ -478,35 +507,35 @@
                             <p class="section-label">Sesión 2</p>
                             <h2 class="section-title">BBDD Anuncios</h2>
                             <p class="muted text-sm mt-2">
-                                Base proveniente de anuncios con leads ya detectados y primeros estados comerciales definidos.
+                                Base proveniente de anuncios con leads ya detectados y estados comerciales actualizados.
                             </p>
                         </div>
                         <div class="bg-blue-50 border border-blue-100 rounded-2xl px-4 py-3">
                             <p class="text-[0.65rem] text-blue-700 uppercase tracking-[0.16em] font-bold">Total de leads</p>
-                            <p class="text-2xl text-slate-900 font-extrabold">96</p>
+                            <p class="text-2xl text-slate-900 font-extrabold">6</p>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                         <div class="mini-kpi p-4 soft-hover">
                             <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Leads totales</p>
-                            <p class="text-3xl font-extrabold text-slate-900">96</p>
-                            <p class="text-xs muted mt-1">Base completa de anuncios</p>
-                        </div>
-                        <div class="mini-kpi p-4 soft-hover">
-                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Por agendar</p>
-                            <p class="text-3xl font-extrabold text-amber-600">2</p>
-                            <p class="text-xs muted mt-1">Lead con interés activo</p>
+                            <p class="text-3xl font-extrabold text-slate-900">6</p>
+                            <p class="text-xs muted mt-1">Leads identificados con estatus</p>
                         </div>
                         <div class="mini-kpi p-4 soft-hover">
                             <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">En conversación</p>
                             <p class="text-3xl font-extrabold text-blue-600">2</p>
-                            <p class="text-xs muted mt-1">Seguimiento en curso</p>
+                            <p class="text-xs muted mt-1">Seguimiento activo</p>
+                        </div>
+                        <div class="mini-kpi p-4 soft-hover">
+                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Interesados</p>
+                            <p class="text-3xl font-extrabold text-violet-600">2</p>
+                            <p class="text-xs muted mt-1">Avance próximo mes</p>
                         </div>
                         <div class="mini-kpi p-4 soft-hover">
                             <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Perdidos</p>
-                            <p class="text-3xl font-extrabold text-rose-600">1</p>
-                            <p class="text-xs muted mt-1">Lead descartado</p>
+                            <p class="text-3xl font-extrabold text-rose-600">2</p>
+                            <p class="text-xs muted mt-1">Con nota de aprendizaje</p>
                         </div>
                     </div>
 
@@ -515,15 +544,23 @@
                             <div class="insight-pill p-4 border border-blue-50">
                                 <p class="text-[0.65rem] font-black text-blue-600 uppercase mb-1">Lectura ejecutiva</p>
                                 <p class="text-sm text-slate-600 leading-snug font-medium">
-                                    La base ya presenta señales concretas de avance comercial, con leads en conversación y oportunidades que pueden convertirse a reunión en el corto plazo.
+                                    La base presenta 4 oportunidades activas: 2 en conversación y 2 interesados para retomar el próximo mes.
                                 </p>
                             </div>
 
                             <div class="warning-pill p-4 border border-orange-50">
                                 <p class="text-[0.65rem] font-black text-orange-600 uppercase mb-1">Prioridad</p>
                                 <p class="text-sm text-slate-600 leading-snug font-medium">
-                                    Conviene enfocar seguimiento inmediato en los <strong>2 leads por agendar</strong> y sostener contacto cercano con los que están <strong>en conversación</strong>.
+                                    Dar seguimiento a <strong>Deshoppingvamos</strong> por negociación de tarifas y a <strong>Soluciones Lufrach</strong> por preparación comercial y timing de abril.
                                 </p>
+                            </div>
+
+                            <div class="rose-pill p-4 border border-rose-50">
+                                <p class="text-[0.65rem] font-black text-rose-600 uppercase mb-1">Perdidos y nota</p>
+                                <div class="space-y-2 text-sm text-slate-600 leading-snug font-medium">
+                                    <p><strong>BQ Ingeniería:</strong> mala experiencia con MOL; se deja abierta la puerta para ayudar con el ICP y recuperarlo a mediano plazo.</p>
+                                    <p><strong>AEISA:</strong> percibe el servicio caro y no desea invertir en este momento.</p>
+                                </div>
                             </div>
                         </div>
 
@@ -537,9 +574,10 @@
                                 <table class="w-full border-collapse">
                                     <thead class="bg-slate-50 border-b border-slate-200 table-head">
                                         <tr>
-                                            <th class="px-4 py-3 text-left">Nombre</th>
                                             <th class="px-4 py-3 text-left">Empresa</th>
+                                            <th class="px-4 py-3 text-left">Contacto</th>
                                             <th class="px-4 py-3 text-left">Estatus</th>
+                                            <th class="px-4 py-3 text-left">Nota</th>
                                         </tr>
                                     </thead>
                                     <tbody id="anunciosTableBody" class="text-sm"></tbody>
@@ -560,8 +598,8 @@
                             </p>
                         </div>
                         <div class="bg-violet-50 border border-violet-100 rounded-2xl px-4 py-3">
-                            <p class="text-[0.65rem] text-violet-700 uppercase tracking-[0.16em] font-bold">Volumen de base</p>
-                            <p class="text-2xl text-slate-900 font-extrabold">100 mil+</p>
+                            <p class="text-[0.65rem] text-violet-700 uppercase tracking-[0.16em] font-bold">Estado de campañas</p>
+                            <p class="text-2xl text-slate-900 font-extrabold">16</p>
                         </div>
                     </div>
 
@@ -572,14 +610,14 @@
                             <p class="text-xs muted mt-1">Correos en BBDD escopeta</p>
                         </div>
                         <div class="mini-kpi p-4 soft-hover">
-                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Campañas totales</p>
+                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Campañas ejecutadas</p>
                             <p class="text-3xl font-extrabold text-slate-900">9</p>
-                            <p class="text-xs muted mt-1">7 ejecutadas / 2 programadas</p>
+                            <p class="text-xs muted mt-1">Ya enviadas</p>
                         </div>
                         <div class="mini-kpi p-4 soft-hover">
-                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Volumen por campaña</p>
-                            <p class="text-3xl font-extrabold text-slate-900">300</p>
-                            <p class="text-xs muted mt-1">Correos enviados por bloque</p>
+                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Campañas programadas</p>
+                            <p class="text-3xl font-extrabold text-slate-900">7</p>
+                            <p class="text-xs muted mt-1">Pendientes de ejecución</p>
                         </div>
                         <div class="mini-kpi p-4 soft-hover">
                             <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Tasa apertura</p>
@@ -628,12 +666,12 @@
                                     <tbody class="text-sm">
                                         <tr class="border-b border-slate-100">
                                             <td class="px-4 py-3 font-semibold text-slate-800">Campañas ejecutadas</td>
-                                            <td class="px-4 py-3 font-bold text-slate-900">7</td>
+                                            <td class="px-4 py-3 font-bold text-slate-900">9</td>
                                             <td class="px-4 py-3"><span class="status-badge status-ejecutada">Ejecutadas</span></td>
                                         </tr>
                                         <tr class="border-b border-slate-100">
                                             <td class="px-4 py-3 font-semibold text-slate-800">Campañas programadas</td>
-                                            <td class="px-4 py-3 font-bold text-slate-900">2</td>
+                                            <td class="px-4 py-3 font-bold text-slate-900">7</td>
                                             <td class="px-4 py-3"><span class="status-badge status-programada">Programadas</span></td>
                                         </tr>
                                         <tr>
@@ -655,39 +693,95 @@
                             <p class="section-label">Sesión 4</p>
                             <h2 class="section-title">CRM</h2>
                             <p class="muted text-sm mt-2">
-                                Estado general del canal CRM a la espera de gestión y marcación de leads.
+                                Leads del CRM ya identificados con estado de conversación activa.
                             </p>
                         </div>
                         <div class="bg-slate-100 border border-slate-200 rounded-2xl px-4 py-3">
-                            <p class="text-[0.65rem] text-slate-600 uppercase tracking-[0.16em] font-bold">Estado actual</p>
-                            <p class="text-2xl text-slate-900 font-extrabold">En espera</p>
+                            <p class="text-[0.65rem] text-slate-600 uppercase tracking-[0.16em] font-bold">Leads totales CRM</p>
+                            <p class="text-2xl text-slate-900 font-extrabold">14</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <div class="mini-kpi p-4 soft-hover">
+                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Leads totales</p>
+                            <p class="text-3xl font-extrabold text-slate-900">14</p>
+                            <p class="text-xs muted mt-1">Base identificada en CRM</p>
+                        </div>
+                        <div class="mini-kpi p-4 soft-hover">
+                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">En conversación</p>
+                            <p class="text-3xl font-extrabold text-blue-600">3</p>
+                            <p class="text-xs muted mt-1">Activos actualmente</p>
+                        </div>
+                        <div class="mini-kpi p-4 soft-hover">
+                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Pendientes de marcar</p>
+                            <p class="text-3xl font-extrabold text-slate-900">11</p>
+                            <p class="text-xs muted mt-1">Aún sin clasificación</p>
+                        </div>
+                        <div class="mini-kpi p-4 soft-hover">
+                            <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Perdidos</p>
+                            <p class="text-3xl font-extrabold text-rose-600">0</p>
+                            <p class="text-xs muted mt-1">Sin perdidos reportados</p>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                        <div class="lg:col-span-4">
-                            <div class="mini-kpi p-5 h-full flex flex-col justify-center">
-                                <p class="text-[0.65rem] uppercase tracking-widest font-black text-slate-400 mb-1">Situación</p>
-                                <p class="text-3xl font-extrabold text-slate-900">Pendiente</p>
-                                <p class="text-sm muted mt-2">
-                                    Aún no se ha iniciado la marcación de leads provenientes de este canal.
+                        <div class="lg:col-span-4 space-y-3">
+                            <div class="insight-pill p-4 border border-blue-50">
+                                <p class="text-[0.65rem] font-black text-blue-600 uppercase mb-1">Lectura ejecutiva</p>
+                                <p class="text-sm text-slate-600 leading-snug font-medium">
+                                    El CRM ya tiene 3 leads activos en conversación. El siguiente paso es clasificar los 11 restantes para ampliar el pipeline.
+                                </p>
+                            </div>
+
+                            <div class="warning-pill p-4 border border-orange-50">
+                                <p class="text-[0.65rem] font-black text-orange-600 uppercase mb-1">Próximo paso</p>
+                                <p class="text-sm text-slate-600 leading-snug font-medium">
+                                    Completar marcación, prioridad y potencial de los leads restantes para convertir el CRM en una fuente comercial más aprovechable.
+                                </p>
+                            </div>
+
+                            <div class="rose-pill p-4 border border-rose-50">
+                                <p class="text-[0.65rem] font-black text-rose-600 uppercase mb-1">Perdidos y nota</p>
+                                <p class="text-sm text-slate-600 leading-snug font-medium">
+                                    Por ahora no se reportan leads perdidos en CRM.
                                 </p>
                             </div>
                         </div>
 
-                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="warning-pill p-4 border border-orange-50">
-                                <p class="text-[0.65rem] font-black text-orange-600 uppercase mb-1">Acción requerida</p>
-                                <p class="text-sm text-slate-600 leading-snug font-medium">
-                                    Activar revisión y clasificación inicial de los leads para poder integrarlos al flujo comercial.
-                                </p>
+                        <div class="lg:col-span-8 bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                            <div class="p-4 border-b border-slate-200 bg-white">
+                                <h4 class="text-xs font-black uppercase tracking-widest text-slate-500">
+                                    Leads CRM en conversación
+                                </h4>
                             </div>
-
-                            <div class="insight-pill p-4 border border-blue-50">
-                                <p class="text-[0.65rem] font-black text-blue-600 uppercase mb-1">Próximo paso</p>
-                                <p class="text-sm text-slate-600 leading-snug font-medium">
-                                    Definir prioridad de contacto, estado y potencial de cada lead para convertir el CRM en una fuente útil de seguimiento.
-                                </p>
+                            <div class="overflow-x-auto custom-scroll">
+                                <table class="w-full border-collapse">
+                                    <thead class="bg-slate-50 border-b border-slate-200 table-head">
+                                        <tr>
+                                            <th class="px-4 py-3 text-left">Lead / Empresa</th>
+                                            <th class="px-4 py-3 text-left">Estatus</th>
+                                            <th class="px-4 py-3 text-left">Nota</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b border-slate-100 text-sm">
+                                            <td class="px-4 py-3 font-semibold text-slate-800">Pollo Sizzler — Mauricio Smith</td>
+                                            <td class="px-4 py-3"><span class="status-badge status-conversacion">En conversación</span></td>
+                                            <td class="px-4 py-3 text-slate-600">Lead activo en CRM.</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-100 text-sm">
+                                            <td class="px-4 py-3 font-semibold text-slate-800">Swiftbox — Randall Duarte</td>
+                                            <td class="px-4 py-3"><span class="status-badge status-conversacion">En conversación</span></td>
+                                            <td class="px-4 py-3 text-slate-600">Lead activo en CRM.</td>
+                                        </tr>
+                                        <tr class="text-sm">
+                                            <td class="px-4 py-3 font-semibold text-slate-800">Allan Roa — servicio de construcción</td>
+                                            <td class="px-4 py-3"><span class="status-badge status-conversacion">En conversación</span></td>
+                                            <td class="px-4 py-3 text-slate-600">Lead activo en CRM.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -813,18 +907,6 @@
     </div>
 
     <script>
-        const summaryTotals = {
-            industriasSeguimiento: 41,
-            linkedinAceptadas: 11,
-            anunciosConversacion: 2,
-            anunciosPorAgendar: 2,
-            anunciosPerdidos: 1
-        };
-
-        const totalAnunciosActivos = summaryTotals.anunciosConversacion + summaryTotals.anunciosPorAgendar;
-        const totalSeguimiento = summaryTotals.industriasSeguimiento + summaryTotals.linkedinAceptadas;
-        const totalActivos = totalSeguimiento + totalAnunciosActivos;
-
         const industries = [
             { name: 'Retail', open: 36, click: 3, shares: 4, sent: 129, color: '#3b82f6' },
             { name: 'Construcción', open: 29, click: 3, shares: 0, sent: 86, color: '#94a3b8' },
@@ -879,11 +961,42 @@
         ];
 
         const anunciosData = [
-            { nombre: "Rodrigez Diaz Kary", empresa: "mia", estatus: "En Conversacion" },
-            { nombre: "Luis Diego Bolaños Quiros", empresa: "BQ Ingenieria", estatus: "Perdido" },
-            { nombre: "Jorge Gutierrez C", empresa: "gcr", estatus: "En Conversacion" },
-            { nombre: "EO YS", empresa: "Deshoppingvamos", estatus: "Por Agendar" },
-            { nombre: "Melvin Otero Lopez", empresa: "AEISA", estatus: "Por Agendar" }
+            {
+                empresa: "MIA",
+                nombre: "Rodrigez Diaz Kary",
+                estatus: "En Conversacion",
+                nota: "Conversación activa."
+            },
+            {
+                empresa: "BQ Ingenieria",
+                nombre: "Luis Diego Bolaños Quiros",
+                estatus: "Perdido",
+                nota: "Mala experiencia con MOL; puerta abierta para ayudar con el ICP y recuperarlo a mediano plazo."
+            },
+            {
+                empresa: "GCR",
+                nombre: "Jorge Gutireez",
+                estatus: "Interesado",
+                nota: "Interesado; avanzar el próximo mes."
+            },
+            {
+                empresa: "Deshoppingvamos",
+                nombre: "Endrina",
+                estatus: "En Conversacion",
+                nota: "Negociando tarifas; son 2 empresas."
+            },
+            {
+                empresa: "AEISA",
+                nombre: "Melvin Otero",
+                estatus: "Perdido",
+                nota: "Le parece caro y no quiere invertir."
+            },
+            {
+                empresa: "Soluciones Lufrach S.A",
+                nombre: "Luis Garcia",
+                estatus: "Interesado",
+                nota: "Ya hablamos de tarifas e inversión; requiere página en Facebook. Es construcción, tiene respaldo de arquitectos pero pocos clientes. Pendiente por temas con MH al 15 de abril; ya tiene cédula jurídica."
+            }
         ];
 
         function getIndColor(indName) {
@@ -896,6 +1009,7 @@
 
         function getStatusBadge(status) {
             if (status === "En Conversacion") return `<span class="status-badge status-conversacion">En conversación</span>`;
+            if (status === "Interesado") return `<span class="status-badge status-interesado">Interesado</span>`;
             if (status === "Por Agendar") return `<span class="status-badge status-agendar">Por agendar</span>`;
             if (status === "Perdido") return `<span class="status-badge status-perdido">Perdido</span>`;
             return `<span class="status-badge status-pendiente">${status}</span>`;
@@ -961,9 +1075,12 @@
             anunciosData.forEach(item => {
                 anunciosTable.innerHTML += `
                     <tr class="border-b border-slate-100 hover:bg-white">
-                        <td class="px-4 py-3 font-semibold text-slate-800">${item.nombre}</td>
-                        <td class="px-4 py-3 text-slate-600">${item.empresa}</td>
+                        <td class="px-4 py-3 font-semibold text-slate-800">${item.empresa}</td>
+                        <td class="px-4 py-3 text-slate-600">
+                            <p class="font-semibold text-slate-800">${item.nombre}</p>
+                        </td>
                         <td class="px-4 py-3">${getStatusBadge(item.estatus)}</td>
+                        <td class="px-4 py-3 text-slate-600">${item.nota}</td>
                     </tr>
                 `;
             });
